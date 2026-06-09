@@ -7,14 +7,27 @@ import e260 from "../../assets/Project_pics/Ellipse 260.png";
 import e261 from "../../assets/Project_pics/Ellipse 261.png";
 import e262 from "../../assets/Project_pics/Ellipse 262.png";
 
-const Av = ({ src, size, style }) => (
+const avatars = [
+  { src: e260, left: "1%", bottom: "40px" },
+  { src: e256, left: "13%", bottom: "75px" },
+
+  { src: e255, left: "29%", bottom: "180px" },
+  { src: e258, left: "38%", bottom: "20px" },
+  { src: e259, left: "54%", bottom: "115px" },
+
+  { src: e257, right: "28%", bottom: "55px" },
+  { src: e261, right: "13%", bottom: "145px" },
+  { src: e262, right: "3%", bottom: "60px" },
+];
+
+const Av = ({ src, style }) => (
   <div
-    className="rounded-full overflow-hidden bg-gray-200 flex-shrink-0"
+    className="absolute rounded-full overflow-hidden bg-gray-200"
     style={{
-      width: size,
-      height: size,
-      border: "3px solid white",
-      boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+      width: "140px",
+      height: "140px",
+      border: "4px solid white",
+      boxShadow: "0 10px 25px rgba(0,0,0,0.16)",
       ...style,
     }}
   >
@@ -26,22 +39,18 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="w-full bg-white flex flex-col items-center text-center relative overflow-hidden"
-      style={{
-        paddingTop: "60px",
-        paddingBottom: "60px",
-      }}
+      className="w-full bg-white relative overflow-hidden px-4 pt-[110px]"
+      style={{ minHeight: "820px" }}
     >
-      {/* LEFT squiggle */}
-
+      {/* Left Decoration */}
       <svg
         className="absolute hidden lg:block pointer-events-none"
         style={{
-          left: "20px",
-          top: "60px",
-          width: "160px",
-          height: "520px",
-        }}
+  left: "10px",
+  top: "115px",
+  width: "120px",
+  height: "360px",
+}}
         viewBox="0 0 90 300"
         fill="none"
       >
@@ -50,7 +59,6 @@ export default function Hero() {
           stroke="#111"
           strokeWidth="7"
           strokeLinecap="round"
-          fill="none"
         />
 
         <path
@@ -58,229 +66,127 @@ export default function Hero() {
           stroke="#FF6D6D"
           strokeWidth="6"
           strokeLinecap="round"
-          fill="none"
         />
       </svg>
 
-      {/* RIGHT purple triangle */}
-
+      {/* Purple Shape */}
       <div
         className="absolute hidden lg:block pointer-events-none"
         style={{
-          right: "40px",
-          top: "120px",
+          right: "140px",
+          top: "125px",
           width: "70px",
           height: "88px",
           backgroundColor: "#7C3AED",
-          clipPath: "polygon(100% 0%, 0% 100%, 100% 100%)",
+          borderRadius: "0 50px 50px 0",
+          transform: "rotate(25deg)",
         }}
       />
 
-      {/* Heading */}
-
-      <h1
-        className="relative z-10 text-black text-center px-4"
-        style={{
-          fontFamily: "'Gerbil', 'Nunito', sans-serif",
-          fontSize: "clamp(36px, 5.5vw, 88px)",
-          fontWeight: 400,
-          lineHeight: "1.15",
-          maxWidth: "1000px",
-        }}
-      >
-        <span className="block">
-          The{" "}
-          <span className="relative inline-block">
-            thinkers
-            <span
-              className="absolute left-0 w-full"
-              style={{
-                height: "5px",
-                backgroundColor: "#FFC250",
-                borderRadius: "3px",
-                bottom: "2px",
-                zIndex: -1,
-              }}
-            />
-          </span>{" "}
-          and doers
-        </span>
-
-        <span className="block">
-          were{" "}
-          <span
-            className="inline-block px-4 py-1"
-            style={{
-              backgroundColor: "#FFC2EA",
-              borderRadius: "50px",
-            }}
-          >
-            changing
+      {/* Hero Content */}
+      <div className="relative z-10 flex flex-col items-center text-center">
+        <h1
+          className="text-black text-center w-full"
+          style={{
+            fontFamily: "'Gerbil', 'Nunito', sans-serif",
+            fontSize: "clamp(38px, 5.4vw, 88px)",
+            fontWeight: 400,
+            lineHeight: "1.05",
+            maxWidth: "1100px",
+          }}
+        >
+          <span className="block">
+            The{" "}
+            <span className="relative inline-block">
+              thinkers
+              <span
+                className="absolute left-0 w-full"
+                style={{
+                  height: "5px",
+                  backgroundColor: "#FFC250",
+                  borderRadius: "3px",
+                  bottom: "2px",
+                  zIndex: -1,
+                }}
+              />
+            </span>{" "}
+            and
           </span>
-        </span>
 
-        <span className="block">
-          the{" "}
-          <span
-            className="inline-block px-4 py-1"
-            style={{
-              backgroundColor: "#D7EEDD",
-              borderRadius: "50px",
-            }}
-          >
-            status
-          </span>{" "}
-          Quo with
-        </span>
-      </h1>
+          <span className="block">
+            doers were{" "}
+            <span
+              className="inline-block px-4 py-1"
+              style={{
+                backgroundColor: "#FFC2EA",
+                borderRadius: "50px",
+              }}
+            >
+              changing
+            </span>
+          </span>
 
-      {/* Subtext */}
+          <span className="block">
+            the{" "}
+            <span
+              className="inline-block px-4 py-1"
+              style={{
+                backgroundColor: "#D7EEDD",
+                borderRadius: "50px",
+              }}
+            >
+              status
+            </span>{" "}
+            Quo with
+          </span>
+        </h1>
 
-      <p
-        className="relative z-10 text-black text-center mt-8"
-        style={{
-          fontFamily: "'Satoshi', 'DM Sans', sans-serif",
-          fontSize: "18px",
-          fontWeight: 400,
-          lineHeight: "30px",
-          maxWidth: "580px",
-        }}
-      >
-        We are a team of strategists, designers communicators,
-        researchers. Together, we believe that progress only
-        happens when you refuse to play things safe.
-      </p>
-
-      {/* Avatar row */}
-
-      <div
-        className="relative z-10 w-full mt-12 flex items-end justify-between px-8"
-        style={{
-          maxWidth: "1200px",
-        }}
-      >
-        {/* Group 1 */}
-
-        <div className="flex items-end">
-          <Av
-            src={e262}
-            size={130}
-            style={{
-              marginRight: "-30px",
-              zIndex: 1,
-            }}
-          />
-
-          <Av
-            src={e261}
-            size={130}
-            style={{
-              marginBottom: "35px",
-              zIndex: 2,
-            }}
-          />
-        </div>
-
-        {/* Group 2 */}
-
-        <div
-          className="flex items-start"
+        <p
+          className="text-black text-center mt-5 max-w-xl"
           style={{
-            position: "relative",
-            width: 260,
-            height: 220,
+            fontFamily: "'Satoshi', sans-serif",
+            fontSize: "13px",
+            lineHeight: "1.5",
           }}
         >
-          <Av
-            src={e255}
-            size={130}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-          />
-
-          <Av
-            src={e256}
-            size={130}
-            style={{
-              position: "absolute",
-              top: 90,
-              left: 145,
-            }}
-          />
-        </div>
-
-        {/* Group 3 */}
-
-        <div className="flex items-end">
-          <Av
-            src={e257}
-            size={130}
-            style={{
-              marginBottom: "20px",
-              marginRight: "-15px",
-              zIndex: 1,
-            }}
-          />
-
-          <Av
-            src={e258}
-            size={130}
-            style={{
-              zIndex: 2,
-              marginRight: "-15px",
-            }}
-          />
-        </div>
-
-        {/* Group 4 */}
-
-        <div
-          className="flex items-start"
-          style={{
-            position: "relative",
-            width: 260,
-            height: 220,
-          }}
-        >
-          <Av
-            src={e259}
-            size={130}
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-            }}
-          />
-
-          <Av
-            src={e260}
-            size={130}
-            style={{
-              position: "absolute",
-              top: 90,
-              left: 145,
-            }}
-          />
-        </div>
+          We are a team of strategists, designers communicators, researchers.
+          Together, we believe that progress only happens when you refuse to play
+          things safe.
+        </p>
       </div>
 
-      {/* Button */}
-<a href="#studio">
-      <button 
-        className="relative z-10 mt-10 px-10 py-4 bg-black text-white hover:bg-gray-800 transition-colors duration-200"
-        style={{
-          fontFamily: "'Satoshi', 'DM Sans', sans-serif",
-          fontSize: "16px",
-          fontWeight: 500,
-          borderRadius: "100px",
-        }}
-      >
-        Get Started
-      </button>
-      </a>
+      {/* Desktop Avatars */}
+      <div className="hidden md:block absolute left-0 right-0 bottom-0 h-[380px] z-10">
+        {avatars.map((avatar, index) => (
+          <Av
+            key={index}
+            src={avatar.src}
+            style={{
+              left: avatar.left,
+              right: avatar.right,
+              bottom: avatar.bottom,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Mobile Avatars */}
+      <div className="md:hidden relative z-10 mt-12 flex flex-wrap justify-center gap-4 pb-12">
+        {[e255, e256, e257, e258, e259, e260, e261, e262].map((img, index) => (
+          <div
+            key={index}
+            className="rounded-full overflow-hidden bg-gray-200"
+            style={{
+              width: 90,
+              height: 90,
+              border: "3px solid white",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.12)",
+            }}
+          >
+            <img src={img} alt="" className="w-full h-full object-cover" />
+          </div>
+        ))}
+      </div>
     </section>
   );
 }
