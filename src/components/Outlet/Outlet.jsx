@@ -1,4 +1,5 @@
-import serviceImg from "../../assets/Project_pics/serviceimage.png";
+import serviceImg from "../../assets/Project_pics/serviceImage.png";
+
 
 import e263 from "../../assets/Project_pics/Ellipse 263.png";
 import e264 from "../../assets/Project_pics/Ellipse 264.png";
