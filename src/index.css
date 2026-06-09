@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: 'Gerbil';
-  src: url('./assets/fonts/Gerbil.woff2') format('woff2');
+  font-family: "Gerbil";
+  src: url("/fonts/Gerbil.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
 }
